@@ -1,0 +1,28 @@
+{
+  "name": "order",
+  "version": "1.0.0",
+  "description": "RESTful API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiewChongLi/assessment.git"
+  },
+  "author": "Liew Chong Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiewChongLi/assessment/issues"
+  },
+  "homepage": "https://github.com/LiewChongLi/assessment#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.6.11",
+    "request": "^2.88.0"
+  }
+}

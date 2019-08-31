@@ -1,0 +1,25 @@
+{
+  "name": "payment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiewChongLi/assessment.git"
+  },
+  "author": "Liew Chong Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiewChongLi/assessment/issues"
+  },
+  "homepage": "https://github.com/LiewChongLi/assessment#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
