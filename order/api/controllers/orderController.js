@@ -4,11 +4,11 @@ const express = require('express');
 var router = new express.Router();
 
 var order = [
-    {id: 1, name: 'coffee', quantity: 2, price: 10, status: 'delivered', client_name: 'John', created_date: new Date()},
-    {id: 2, name: 'tea', quantity: 1, price: 10, status: 'delivered', client_name: 'Sam', created_date: new Date()},
-    {id: 3, name: 'chicken burger', price: 30, quantity: 3, status: 'delivered', client_name: 'Smith', created_date: new Date()},
-    {id: 4, name: 'latte', quantity: 4, price: 10, status: 'delivered', client_name: 'Legend', created_date: new Date()},
-    {id: 5, name: 'chicken chop', quantity: 1, price: 20, status: 'delivered', client_name: 'Kate', created_date: new Date()},
+    {id: 1, name: 'coffee', quantity: 2, price: 10, status: 'delivered', clientName: 'John', createdDate: new Date()},
+    {id: 2, name: 'tea', quantity: 1, price: 10, status: 'delivered', clientName: 'Sam', createdDate: new Date()},
+    {id: 3, name: 'chicken burger', price: 30, quantity: 3, status: 'delivered', clientName: 'Smith', createdDate: new Date()},
+    {id: 4, name: 'latte', quantity: 4, price: 10, status: 'delivered', clientName: 'Legend', createdDate: new Date()},
+    {id: 5, name: 'chicken chop', quantity: 1, price: 20, status: 'delivered', clientName: 'Kate', createdDate: new Date()},
 ]
 
 exports.view_order = function(req, res) {

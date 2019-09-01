@@ -1,0 +1,167 @@
+<tabset>
+  <tab>
+    <ng-template tabHeading="View Order"></ng-template>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            Order Table
+          </div>
+
+          <div class="card-body">
+            <div *ngIf="form.data.order">
+              <div class="col-12">
+                <table class="table table-hover table-striped table-bordered">
+                  <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Order Item</th>
+                    <th>Quantity</th>
+                    <th>Pricing</th>
+                    <th>Client</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+
+                  <tbody>
+                  <tr *ngFor="let item of form.data.order">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.clientName}}</td>
+                    <td>{{item.status}}</td>
+                    <td>
+                      <button (click)="cancelOrder(item.id)">Cancel</button>
+                      <button (click)="viewOrder(item.id)">View</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="form.data.selectedOrder">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            Order Details
+          </div>
+
+          <div class="card-body">
+            <form #viewOrderForm="ngForm" class="form-horizontal">
+              <div class="form-group row">
+                <label class="col-3 form-control">Order ID</label>
+                <div class="row col-9">
+                  <label class="form-control">{{form.data.selectedOrder.id}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-3 form-control">Order Item</label>
+                <div class="row col-9">
+                  <label class="form-control">{{form.data.selectedOrder.name}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-3 form-control">Quantity</label>
+                <div class="row col-9">
+                  <label class="form-control">{{form.data.selectedOrder.quantity}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-3 form-control">Price</label>
+                <div class="row col-9">
+                  <label class="form-control">{{form.data.selectedOrder.price}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-3 form-control">Status</label>
+                <div class="row col-9">
+                  <label class="form-control">{{form.data.selectedOrder.status}}</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-3 form-control">Client</label>
+                <div class="row col-9">
+                  <label class="form-control">{{form.data.selectedOrder.clientName}}</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </tab>
+
+  <tab>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            Place Order Form
+          </div>
+
+          <div class="card-body">
+            <form #makeOrderForm="ngForm" class="form-horizontal">
+
+              <div class="form-group row">
+                <label class="col-3 form-control" for="formOrderName">Order Item</label>
+                <div class="row col-9">
+                  <input #formOrderName="ngModel" [(ngModel)]="form.data.placeOrder.name" name="formOrderName" type="text" class="form-control" required>
+                  <div *ngIf="formOrderName.errors" class="alert alert-danger">
+                    <div [hidden]="!formOrderName.errors.required">Order Name is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-3 form-control" for="formOrderQuantity">Order Quantity</label>
+                <div class="row col-9">
+                  <input #formOrderQuantity="ngModel" [(ngModel)]="form.data.placeOrder.quantity" name="formOrderQuantity" type="number" class="form-control" required>
+                  <div *ngIf="formOrderQuantity.errors" class="alert alert-danger">
+                    <div [hidden]="!formOrderQuantity.errors.required">Order Quantity is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-3 form-control" for="formOrderPrice">Order Price</label>
+                <div class="row col-9">
+                  <input #formOrderPrice="ngModel" [(ngModel)]="form.data.placeOrder.price" [currencyMask]="{integerLimit:20, decimalLimit:8}" name="formOrderPrice" type="text" class="form-control" required>
+                  <div *ngIf="formOrderPrice.errors" class="alert alert-danger">
+                    <div [hidden]="!formOrderPrice.errors.required">Order Price is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-3 form-control" for="formOrderClient">Order Client</label>
+                <div class="row col-9">
+                  <input #formOrderClient="ngModel" [(ngModel)]="form.data.placeOrder.clientName" name="formOrderClient" type="text" class="form-control" required>
+                  <div *ngIf="formOrderClient.errors" class="alert alert-danger">
+                    <div [hidden]="!formOrderClient.errors.required">Order Client is required.</div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="card-footer">
+            <button type="button" class="btn btn-success" (click)="onSubmit()">Submit Form</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </tab>
+</tabset>
